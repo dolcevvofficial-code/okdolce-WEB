@@ -2,1423 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OKDOLCE © - Producer & Sample Kits</title>
   
-  <!-- TAB ICON (FAVICON) -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-  <!-- GUMROAD OVERLAY EMBED SCRIPT -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://gumroad.com/js/gumroad.js" async></script>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #f0f4f9;
-      color: #0f172a;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* 🔵 HARDWARE-OPTIMIZED BACKGROUND ORBS */
-    .orb-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-      transform: translate3d(0, 0, 0);
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.6;
-      will-change: transform;
-      transform: translate3d(0,0,0);
-    }
-
-    .orb-1 {
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, #0055ff 0%, #00d2ff 50%, rgba(0, 210, 255, 0) 70%);
-      top: -50px;
-      left: -50px;
-      animation: moveOrb1 16s ease-in-out infinite alternate;
-    }
-
-    .orb-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, #00d2ff 0%, #0066ff 50%, rgba(0, 102, 255, 0) 70%);
-      bottom: -100px;
-      right: -50px;
-      animation: moveOrb2 20s ease-in-out infinite alternate;
-    }
-
-    .orb-3 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, #3b82f6 0%, #00f0ff 60%, rgba(0, 240, 255, 0) 70%);
-      top: 40%;
-      left: 30%;
-      animation: moveOrb3 18s ease-in-out infinite alternate;
-    }
-
-    @keyframes moveOrb1 {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(180px, 120px, 0); }
-    }
-
-    @keyframes moveOrb2 {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-150px, -140px, 0); }
-    }
-
-    @keyframes moveOrb3 {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(120px, -100px, 0); }
-    }
-
-    /* 🧪 HIGH-PERFORMANCE LIQUID GLASS PANELS */
-    .glass-panel {
-      position: relative;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 
-        0 8px 32px rgba(0, 85, 255, 0.08),
-        inset 0 1px 2px rgba(255, 255, 255, 1);
-      border-radius: 20px;
-    }
-
-    /* HEADER */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: #0055ff;
-      letter-spacing: -1.5px;
-      cursor: pointer;
-      text-shadow: 0 0 12px rgba(0, 85, 255, 0.25);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .studio-clock-hub {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(0, 102, 255, 0.25);
-      padding: 6px 14px;
-      border-radius: 12px;
-    }
-
-    .clock-status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #0066ff;
-      box-shadow: 0 0 8px #0066ff;
-    }
-
-    .timecode-display {
-      font-size: 13px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    /* HAMBURGER MENU */
-    .hamburger-menu {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-      z-index: 100;
-    }
-
-    .hamburger-line {
-      width: 28px;
-      height: 3px;
-      background: #0055ff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* DESKTOP NAV LINKS */
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #1e293b;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      display: inline-block;
-    }
-
-    .nav-links a:hover {
-      color: #0066ff;
-      background: rgba(0, 102, 255, 0.12);
-      border-color: rgba(0, 102, 255, 0.4);
-    }
-
-    /* MOBILE SIDEBAR MENU */
-    .mobile-menu {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.95);
-      z-index: 99;
-      display: none;
-      flex-direction: column;
-      padding: 80px 20px 20px;
-      gap: 20px;
-      overflow-y: auto;
-      backdrop-filter: blur(10px);
-    }
-
-    .mobile-menu.active {
-      display: flex;
-    }
-
-    .mobile-menu a {
-      color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 12px 16px;
-      border-radius: 8px;
-      background: rgba(0, 102, 255, 0.15);
-      border: 1px solid rgba(0, 102, 255, 0.3);
-      text-align: left;
-      transition: all 0.2s ease;
-    }
-
-    .mobile-menu a:hover {
-      background: rgba(0, 102, 255, 0.3);
-      border-color: rgba(0, 102, 255, 0.6);
-    }
-
-    /* MAIN CONTAINER */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      width: 100%;
-      margin: 25px auto;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      color: #0052cc;
-    }
-
-    /* ABOUT ME SECTION */
-    .about-section {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .about-text {
-      font-size: 15px;
-      line-height: 1.6;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .about-images-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .about-img-placeholder {
-      aspect-ratio: 4 / 3;
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 102, 255, 0.2);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .about-img-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* WORKS GRID SECTION */
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 24px;
-    }
-
-    .work-card {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .video-container {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background-color: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .work-title {
-      font-weight: 800;
-      font-size: 18px;
-      color: #0f172a;
-      letter-spacing: -0.3px;
-    }
-
-    .work-artist {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: #475569;
-    }
-
-    .yt-link {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: #0066ff;
-      display: inline-block;
-      margin-top: 6px;
-    }
-
-    /* SAMPLE LIBRARIES SECTION */
-    .sample-libraries-container {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .libraries-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .library-card-featured {
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      transition: transform 0.25s ease;
-      box-shadow: 0 0 20px rgba(0, 102, 255, 0.25);
-      border: 1px solid rgba(0, 162, 255, 0.5);
-      cursor: pointer;
-    }
-
-    .library-card-featured:hover {
-      transform: translateY(-4px);
-    }
-
-    .library-cover-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 102, 255, 0.25);
-      background: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .library-cover-wrapper img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .badge-flashy {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 2;
-      background: linear-gradient(135deg, #0055ff, #00d2ff);
-      color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 6px;
-      letter-spacing: 0.8px;
-      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-
-    .library-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .library-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .library-price {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      font-weight: 800;
-      color: #0055ff;
-    }
-
-    .library-specs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .spec-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      font-weight: 700;
-      background: rgba(0, 102, 255, 0.15);
-      color: #0055ff;
-      padding: 4px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(0, 102, 255, 0.25);
-    }
-
-    /* BUTTON STYLING */
-    .buy-btn-gumroad {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      background: #0066ff;
-      color: #ffffff;
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-      text-align: center;
-      transition: background 0.2s ease;
-      min-height: 38px;
-      line-height: 18px;
-    }
-
-    .buy-btn-gumroad:hover {
-      background: #0052cc;
-    }
-
-    .buy-btn-disabled {
-      background: rgba(148, 163, 184, 0.25);
-      color: #64748b;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    /* ⬇️ ANIMATED SCROLL DOWN INDICATOR */
-    .scroll-hint-wrapper {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 98;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    .scroll-hint-wrapper.fade-out {
-      opacity: 0;
-    }
-
-    .scroll-hint-pill {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(0, 102, 255, 0.3);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 800;
-      color: #0055ff;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.15);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .scroll-arrow-down {
-      width: 8px;
-      height: 8px;
-      border-right: 2px solid #0055ff;
-      border-bottom: 2px solid #0055ff;
-      transform: rotate(45deg);
-      animation: bounceArrow 1.5s infinite ease-in-out;
-    }
-
-    @keyframes bounceArrow {
-      0%, 100% { transform: rotate(45deg) translate(0, 0); }
-      50% { transform: rotate(45deg) translate(3px, 3px); }
-    }
-
-    /* MODALS */
-    .product-detail-modal-overlay, .discount-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.4);
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      padding: 16px;
-      overflow-y: auto;
-    }
-
-    .product-detail-modal-overlay.active, .discount-modal-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .product-detail-modal {
-      width: 100%;
-      max-width: 700px;
-      padding: 24px;
-      border-radius: 18px;
-      position: relative;
-      text-align: left;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .discount-modal {
-      width: 100%;
-      max-width: 380px;
-      padding: 24px;
-      border-radius: 18px;
-      position: relative;
-      text-align: center;
-    }
-
-    .close-modal-btn {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 22px;
-      line-height: 1;
-      color: #64748b;
-      cursor: pointer;
-      padding: 4px 8px;
-    }
-
-    .product-detail-content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .product-detail-header {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .product-detail-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 12px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .product-detail-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .product-detail-info {
-      flex: 1;
-    }
-
-    .product-detail-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    .product-detail-price {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 16px;
-      font-weight: 800;
-      color: #0055ff;
-      margin-bottom: 12px;
-    }
-
-    .product-detail-description {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #475569;
-      margin-bottom: 16px;
-    }
-
-    .product-specs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .spec-item {
-      font-size: 13px;
-      color: #1e293b;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .spec-item:before {
-      content: "▸";
-      color: #0055ff;
-      font-weight: 800;
-    }
-
-    .product-preview-section {
-      border-top: 1px solid rgba(0, 102, 255, 0.2);
-      padding-top: 16px;
-    }
-
-    .preview-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      color: #0052cc;
-    }
-
-    .audio-player {
-      width: 100%;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .discount-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: #0066ff;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
-    }
-
-    .discount-sub {
-      font-size: 12px;
-      color: #475569;
-      margin-bottom: 18px;
-      line-height: 1.4;
-    }
-
-    .discount-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .discount-input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 102, 255, 0.3);
-      background: rgba(255, 255, 255, 0.9);
-      color: #0f172a;
-      font-family: 'JetBrains Mono', monospace;
-      outline: none;
-      font-size: 13px;
-    }
-
-    .discount-submit-btn {
-      background: #0066ff;
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 12px;
-      cursor: pointer;
-      min-height: 42px;
-    }
-
-    /* FORMSPREE FEEDBACK MESSAGES */
-    [data-fs-success] {
-      color: #0066ff;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    [data-fs-error] {
-      color: #ef4444;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      margin-top: 4px;
-    }
-
-    /* FOOTER */
-    .footer-section {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .contact-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .bottom-copyright-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 32px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: #475569;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 10px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-big-img {
-      height: 140px;
-      width: auto;
-      object-fit: contain;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      display: block;
-    }
-
-    .tos-link {
-      color: #0066ff;
-      cursor: pointer;
-      text-decoration: underline;
-      transition: opacity 0.2s ease;
-    }
-
-    .tos-link:hover {
-      opacity: 0.8;
-    }
-
-    /* PAGE HIDE/SHOW */
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 768px) {
-      body { padding: 12px; }
-      
-      .header { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding: 16px; 
-        position: relative;
-      }
-      
-      .header-right { 
-        width: 100%; 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 12px; 
-      }
-      
-      .nav-links { 
-        display: none; 
-      }
-      
-      .hamburger-menu {
-        display: flex;
-        position: absolute;
-        right: 24px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .about-images-grid { grid-template-columns: 1fr; }
-      .works-grid { grid-template-columns: 1fr; }
-      .libraries-grid { grid-template-columns: 1fr; }
-      .contact-card { flex-direction: column; align-items: flex-start; }
-      .bottom-copyright-bar { flex-direction: column; align-items: flex-start; }
-      .footer-big-img { height: 90px; }
-      .scroll-hint-wrapper { bottom: 16px; }
-      
-      .product-detail-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .product-detail-modal {
-        padding: 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- 🔵 MOVING BACKGROUND ORBS -->
-  <div class="orb-background">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-
-  <!-- ⬇️ ANIMATED SCROLL DOWN INDICATOR -->
-  <div class="scroll-hint-wrapper" id="scroll-hint">
-    <div class="scroll-hint-pill">
-      SCROLL DOWN
-      <div class="scroll-arrow-down"></div>
-    </div>
-  </div>
-
   <!-- HEADER -->
-  <header class="header glass-panel">
-    <div class="header-left">
-      <a href="javascript:void(0)" onclick="showPage('home')" class="brand-logo">okdolce</a>
-    </div>
-    
-    <div class="header-right">
-      <div class="studio-clock-hub">
-        <div class="clock-status-dot"></div>
-        <div class="timecode-display" id="timecode">00:00:00:00</div>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="brand-logo">okdolce</a>
       </div>
-
-      <nav class="nav-links">
-        <a href="javascript:void(0)" onclick="showPage('home')">[HOME]</a>
-        <a href="javascript:void(0)" onclick="showPage('shop')">[SHOP]</a>
-        <a href="javascript:void(0)" onclick="showPage('about')">[ABOUT]</a>
-        <a href="mailto:dolcevvofficial@gmail.com">[EMAIL]</a>
-        <a href="https://instagram.com/dolceotm" target="_blank">[INSTAGRAM]</a>
-        <a href="https://tiktok.com/@dolceotm" target="_blank">[TIKTOK]</a>
-        <a href="https://genius.com/artists/Dolceotm" target="_blank">[GENIUS]</a>
-        <a href="https://open.spotify.com/playlist/1hLRoaduuYjGFnT88LVnW1" target="_blank">[SPOTIFY]</a>
+      
+      <nav class="nav-desktop">
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-item">home</a>
+        <a href="javascript:void(0)" onclick="navigateTo('shop')" class="nav-item">presets</a>
+        <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-item">about</a>
+        <a href="javascript:void(0)" onclick="navigateTo('tos')" class="nav-item">tos</a>
       </nav>
+
+      <div class="hamburger-menu" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
 
-    <!-- HAMBURGER MENU -->
-    <div class="hamburger-menu" id="hamburger" onclick="toggleMobileMenu()">
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="javascript:void(0)" onclick="navigateTo('home'); closeMobileMenu();" class="mobile-nav-item">home</a>
+      <a href="javascript:void(0)" onclick="navigateTo('shop'); closeMobileMenu();" class="mobile-nav-item">presets</a>
+      <a href="javascript:void(0)" onclick="navigateTo('about'); closeMobileMenu();" class="mobile-nav-item">about</a>
+      <a href="javascript:void(0)" onclick="navigateTo('tos'); closeMobileMenu();" class="mobile-nav-item">tos</a>
+      <a href="mailto:dolcevvofficial@gmail.com" class="mobile-nav-item">contact</a>
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="javascript:void(0)" onclick="showPage('home'); closeMobileMenu();">[HOME]</a>
-    <a href="javascript:void(0)" onclick="showPage('shop'); closeMobileMenu();">[SHOP]</a>
-    <a href="javascript:void(0)" onclick="showPage('about'); closeMobileMenu();">[ABOUT]</a>
-    <a href="mailto:dolcevvofficial@gmail.com">[EMAIL]</a>
-    <a href="https://instagram.com/dolceotm" target="_blank">[INSTAGRAM]</a>
-    <a href="https://tiktok.com/@dolceotm" target="_blank">[TIKTOK]</a>
-    <a href="https://genius.com/artists/Dolceotm" target="_blank">[GENIUS]</a>
-    <a href="https://open.spotify.com/playlist/1hLRoaduuYjGFnT88LVnW1" target="_blank">[SPOTIFY]</a>
-    <a href="javascript:void(0)" onclick="showPage('tos'); closeMobileMenu();">[TERMS OF SERVICE]</a>
-  </div>
-
   <!-- HOME PAGE -->
-  <main id="home-page" class="page active">
+  <div id="home" class="page active">
     <main class="container">
       
-      <!-- WORKS / CREDITS SECTION -->
-      <section>
-        <div class="section-label">// WORKS [PRODUCED / CONTRIBUTED]</div>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <h1 class="hero-title">okdolce</h1>
+        <p class="hero-subtitle">music production presets</p>
+      </section>
+
+      <!-- FEATURED WORKS -->
+      <section class="works-section">
+        <div class="section-label">works</div>
         
         <div class="works-grid">
-          <!-- TRACK 1 -->
-          <div class="work-card glass-panel">
-            <div class="video-container">
+          <div class="work-item">
+            <div class="work-video">
               <iframe src="https://www.youtube-nocookie.com/embed/vt3gSijKqs4" allowfullscreen loading="lazy"></iframe>
             </div>
-            <div>
-              <div class="work-title">TE DESEO</div>
-              <div class="work-artist">FLOYYMENOR</div>
-              <a href="https://www.youtube.com/watch?v=vt3gSijKqs4" target="_blank" class="yt-link">LISTEN NOW ↗</a>
+            <div class="work-info">
+              <h3>TE DESEO</h3>
+              <p>FLOYYMENOR</p>
             </div>
           </div>
 
-          <!-- TRACK 2 -->
-          <div class="work-card glass-panel">
-            <div class="video-container">
+          <div class="work-item">
+            <div class="work-video">
               <iframe src="https://www.youtube-nocookie.com/embed/EoJGwKHrdbk" allowfullscreen loading="lazy"></iframe>
             </div>
-            <div>
-              <div class="work-title">SOLA SOLITA</div>
-              <div class="work-artist">FLOYYMENOR</div>
-              <a href="https://www.youtube.com/watch?v=EoJGwKHrdbk" target="_blank" class="yt-link">LISTEN NOW ↗</a>
+            <div class="work-info">
+              <h3>SOLA SOLITA</h3>
+              <p>FLOYYMENOR</p>
             </div>
           </div>
-
-          <!-- TRACK 3 -->
-          <div class="work-card glass-panel">
-            <div class="video-container">
-              <iframe src="https://www.youtube-nocookie.com/embed/--uCOE9WjCc" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div>
-              <div class="work-title">BAI LA ME</div>
-              <div class="work-artist">FLOYYMENOR</div>
-              <a href="https://youtu.be/--uCOE9WjCc?si=4rzxxgbeXybQ5Rry" target="_blank" class="yt-link">LISTEN NOW ↗</a>
-            </div>
-          </div>
-
-          <!-- TRACK 4 -->
-          <div class="work-card glass-panel">
-            <div class="video-container">
-              <iframe src="https://www.youtube-nocookie.com/embed/NnKBJF4XYa0" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div>
-              <div class="work-title">OTRA VEZ</div>
-              <div class="work-artist">FINO III</div>
-              <a href="https://youtu.be/NnKBJF4XYa0?si=Hiz-3BcH253cWtGB" target="_blank" class="yt-link">LISTEN NOW ↗</a>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      <!-- SAMPLE LIBRARIES STORE SECTION -->
-      <section class="sample-libraries-container glass-panel">
-        <div class="section-label">// FEATURED SAMPLE LIBRARIES</div>
+      <!-- FEATURED PRESETS -->
+      <section class="presets-section">
+        <div class="section-label">featured</div>
         
-        <div class="libraries-grid" id="featured-libraries">
-          <!-- Featured products dynamically loaded here -->
-        </div>
-
-        <div style="margin-top: 20px; text-align: center;">
-          <a href="javascript:void(0)" onclick="showPage('shop')" class="buy-btn-gumroad">VIEW ALL PACKS ↗</a>
+        <div class="presets-grid" id="home-presets">
+          <!-- Populated by JavaScript -->
         </div>
       </section>
-
     </main>
-  </main>
+  </div>
 
   <!-- SHOP PAGE -->
-  <main id="shop-page" class="page">
+  <div id="shop" class="page">
     <main class="container">
-      
-      <!-- SAMPLE LIBRARIES STORE SECTION -->
-      <section class="sample-libraries-container glass-panel">
-        <div class="section-label">// SAMPLE LIBRARIES & PRESETS</div>
+      <section class="shop-section">
+        <div class="section-label">all presets</div>
         
-        <div class="libraries-grid" id="all-libraries">
-          <!-- All products dynamically loaded here -->
+        <div class="presets-grid" id="shop-presets">
+          <!-- Populated by JavaScript -->
         </div>
       </section>
-
     </main>
-  </main>
+  </div>
 
   <!-- ABOUT PAGE -->
-  <main id="about-page" class="page">
+  <div id="about" class="page">
     <main class="container">
-      
-      <!-- ABOUT ME SECTION -->
-      <section class="about-section glass-panel">
-        <div class="section-label">// ABOUT</div>
-        <p class="about-text">Peruvian & Puerto Rican Producer. I work with Reggaeton, Trap, R&B, Afrobeat, House, Pop, Funk, etc.</p>
-
-        <div class="about-images-grid">
-          <div class="about-img-placeholder">
-            <img src="images/Photo1.jpg" alt="Studio Shot 1" loading="lazy">
-          </div>
-          <div class="about-img-placeholder">
-            <img src="images/Photo2.jpeg" alt="Studio Shot 2" loading="lazy">
-          </div>
-          <div class="about-img-placeholder">
-            <img src="images/Photo3.jpeg" alt="Studio Shot 3" loading="lazy">
+      <section class="about-section">
+        <div class="section-label">about</div>
+        
+        <div class="about-content">
+          <p>Producer and preset designer crafting unique sonic tools for modern music creation.</p>
+          <p>Every preset bank is carefully designed and tested across multiple DAWs.</p>
+          
+          <div class="social-links">
+            <a href="https://instagram.com/dolceotm" target="_blank">instagram</a>
+            <a href="https://tiktok.com/@dolceotm" target="_blank">tiktok</a>
+            <a href="https://genius.com/artists/Dolceotm" target="_blank">genius</a>
+            <a href="https://open.spotify.com/playlist/1hLRoaduuYjGFnT88LVnW1" target="_blank">spotify</a>
+            <a href="mailto:dolcevvofficial@gmail.com">contact</a>
           </div>
         </div>
       </section>
-
     </main>
-  </main>
+  </div>
 
   <!-- TERMS OF SERVICE PAGE -->
-  <main id="tos-page" class="page">
+  <div id="tos" class="page">
     <main class="container">
-      
-      <section class="glass-panel" style="padding: 32px;">
-        <div class="section-label" style="margin-bottom: 8px;">// LEGAL</div>
-        <div class="discount-title" style="text-align: left; margin-bottom: 16px;">TERMS OF SERVICE</div>
+      <section class="tos-section">
+        <div class="section-label">terms of service</div>
         
-        <div style="font-size: 13px; line-height: 1.7; color: #1e293b; display: flex; flex-direction: column; gap: 14px;">
-          <p><strong>1. Digital Products</strong><br>All sample libraries, sound kits, and digital downloads purchased on okdolce are non-refundable once downloaded due to the digital nature of the files.</p>
-          
-          <p><strong>2. Royalty & Streaming Terms</strong><br>Loops and samples are 100% royalty-free for independent releases up to 3,000,000 streams. If a song is projected or planned to cross 3,000,000 streams, or involves a major/established artist, you are required to reach out and contact me. Any track exceeding 3,000,000 streams will require appropriate credit and a percentage share of publishing royalties.</p>
-          
-          <p><strong>3. Usage Rights</strong><br>Purchasing a sound kit grants a non-exclusive license to use the sound files in your original music compositions. Reselling, re-licensing, or sharing sample files directly is strictly prohibited.</p>
+        <div class="tos-content">
+          <div class="tos-item">
+            <h3>license</h3>
+            <p>By purchasing any preset bank, you receive a limited license for personal and commercial use in original music productions.</p>
+          </div>
 
-          <p><strong>4. Content Ownership</strong><br>All audio samples, presets, and content provided by OKDOLCE remain the intellectual property of the creator. Users receive a limited, non-exclusive license to use the content in their music productions.</p>
+          <div class="tos-item">
+            <h3>permitted</h3>
+            <ul>
+              <li>Use in original music productions</li>
+              <li>Commercial releases and streaming</li>
+              <li>Modify and process presets</li>
+              <li>Use across multiple projects</li>
+            </ul>
+          </div>
 
-          <p><strong>5. Modifications & Support</strong><br>We reserve the right to modify these terms at any time. Users will be notified of significant changes. Technical support for digital products is limited to download issues and file delivery.</p>
+          <div class="tos-item">
+            <h3>prohibited</h3>
+            <ul>
+              <li>Resell or redistribute presets</li>
+              <li>Share on file-sharing sites</li>
+              <li>Claim original ownership</li>
+              <li>Use without valid license</li>
+            </ul>
+          </div>
 
-          <p><strong>6. Contact for Custom Work</strong><br>For inquiries about licensing, collaborations, or custom production, please contact dolcevvofficial@gmail.com</p>
-        </div>
-
-        <div style="margin-top: 30px; text-align: center;">
-          <a href="javascript:void(0)" onclick="showPage('home')" class="buy-btn-gumroad">← BACK TO HOME</a>
+          <div class="tos-item">
+            <h3>policy</h3>
+            <p>All sales are final. Digital products cannot be returned once downloaded.</p>
+            <p>Questions: <a href="mailto:dolcevvofficial@gmail.com">dolcevvofficial@gmail.com</a></p>
+          </div>
         </div>
       </section>
-
     </main>
-  </main>
+  </div>
 
   <!-- PRODUCT DETAIL MODAL -->
-  <div class="product-detail-modal-overlay" id="product-detail-overlay">
-    <div class="product-detail-modal glass-panel">
-      <span class="close-modal-btn" onclick="closeProductModal()">&times;</span>
-      
-      <div class="product-detail-content" id="product-detail-content">
-        <!-- Content dynamically loaded here -->
+  <div class="modal-overlay" id="product-modal" onclick="closeProductModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      <div id="modal-body">
+        <!-- Populated by JavaScript -->
       </div>
     </div>
   </div>
 
-  <!-- DISCOUNT POPUP MODAL -->
-  <div class="discount-modal-overlay" id="discount-overlay">
-    <div class="discount-modal glass-panel">
-      <span class="close-modal-btn" onclick="closeDiscountModal()">&times;</span>
-      
-      <div data-fs-success style="display:none;">
-        ✓ DISCOUNT CODE SENT TO YOUR INBOX!
-      </div>
-      <div data-fs-error style="display:none;"></div>
-
-      <div class="discount-title">GET 10% OFF</div>
-      <p class="discount-sub">Sign up to receive 10% off your first sample pack purchase.</p>
-      
-      <form class="discount-form" id="discount-form" action="https://formspree.io/f/xykrband" method="POST">
-        <input type="email" name="email" class="discount-input" placeholder="Enter your email" required data-fs-field>
-        <span data-fs-error="email"></span>
-        
-        <button type="submit" class="discount-submit-btn" data-fs-submit-btn>GET MY DISCOUNT</button>
-      </form>
-    </div>
-  </div>
-
-  <footer class="footer-section">
-    <a href="mailto:dolcevvofficial@gmail.com" class="contact-card glass-panel">
-      <div>
-        <div class="section-label" style="margin:0;">// CONTACT</div>
-        <div style="font-size: 18px; font-weight: 600;">Contact Me For Custom Production & Collabs</div>
-      </div>
-      <div class="buy-btn-gumroad">dolcevvofficial@gmail.com ↗</div>
-    </a>
-
-    <!-- COPYRIGHT & TERMS OF SERVICE BAR -->
-    <div class="bottom-copyright-bar glass-panel">
-      <div class="footer-brand">
-        <img src="images/faviconbig.png" alt="OKDOLCE Icon" class="footer-big-img">
-        <span>OKDOLCE © 2026</span>
-      </div>
-      <div><a href="javascript:void(0)" onclick="showPage('tos')" class="tos-link">Terms of Service</a></div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>© 2026 okdolce</div>
+      <div><a href="mailto:dolcevvofficial@gmail.com">contact</a></div>
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC -->
-  <script>
-    /* --- PRODUCT DATA --- */
-    const products = [
-      {
-        id: 'fractals',
-        title: 'FRACTALS',
-        price: 14.99,
-        badge: '⚡ NEW',
-        image: 'images/fractals.jpg',
-        genre: ['Reggaeton', 'Trap'],
-        presets: 200,
-        daw: 'Vital',
-        description: 'A collection of hypnotic fractal-inspired presets perfect for Reggaeton and Trap production. Rich, evolving soundscapes with intricate modulation.',
-        available: true,
-        gumroad_id: 'fractals-preset-pack',
-        previewAudio: 'audio/fractals-preview.mp3'
-      },
-      {
-        id: 'ethereal',
-        title: 'ETHEREAL ECHOES',
-        price: 9.99,
-        badge: '✨ SALE',
-        image: 'images/ethereal.jpg',
-        genre: ['R&B', 'Afrobeat'],
-        presets: 150,
-        daw: 'Vital',
-        description: 'Smooth, atmospheric presets perfect for R&B and Afrobeat production. Ethereal pads, glitchy effects, and warm basses.',
-        available: true,
-        gumroad_id: 'ethereal-presets',
-        previewAudio: 'audio/ethereal-preview.mp3'
-      },
-      {
-        id: 'neon-nights',
-        title: 'NEON NIGHTS',
-        price: 19.99,
-        badge: '🔥 BEST SELLER',
-        image: 'images/neon-nights.jpg',
-        genre: ['House', 'Synthwave'],
-        presets: 250,
-        daw: 'Vital',
-        description: 'Vibrant, synth-heavy presets for House and Synthwave production. Punchy leads, deep basses, and retro-futuristic textures.',
-        available: true,
-        gumroad_id: 'neon-nights-pack',
-        previewAudio: 'audio/neon-preview.mp3'
-      },
-      {
-        id: 'future-funk',
-        title: 'FUTURE FUNK',
-        price: 12.99,
-        badge: '🎛 GROOVY',
-        image: 'images/future-funk.jpg',
-        genre: ['Funk', 'Pop'],
-        presets: 180,
-        daw: 'Vital',
-        description: 'Funky, uplifting presets with infectious grooves. Perfect for Pop and modern Funk productions.',
-        available: true,
-        gumroad_id: 'future-funk-pack',
-        previewAudio: 'audio/funk-preview.mp3'
-      },
-      {
-        id: 'dark-matter',
-        title: 'DARK MATTER',
-        price: 14.99,
-        badge: '🌑 DARK',
-        image: 'images/dark-matter.jpg',
-        genre: ['Trap', 'Hip-Hop'],
-        presets: 200,
-        daw: 'Vital',
-        description: 'Heavy, dark presets designed for Trap and Hip-Hop. Deep basses, menacing leads, and crisp percussion sounds.',
-        available: true,
-        gumroad_id: 'dark-matter-pack',
-        previewAudio: 'audio/dark-preview.mp3'
-      },
-      {
-        id: 'coming-soon',
-        title: 'TROPICAL VIBES',
-        price: 16.99,
-        badge: '🎶 COMING SOON',
-        image: 'images/tropical.jpg',
-        genre: ['Reggaeton', 'Dancehall'],
-        presets: 220,
-        daw: 'Vital',
-        description: 'Island-inspired sounds for Latin and Caribbean productions. Warm synths and rhythmic elements.',
-        available: false,
-        gumroad_id: 'tropical-pack',
-        previewAudio: null
-      }
-    ];
-
-    /* --- RENDER PRODUCTS --- */
-    function renderProducts(containerId, limit = null) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-
-      const productsToRender = limit ? products.slice(0, limit) : products;
-      
-      container.innerHTML = productsToRender.map(product => `
-        <div class="library-card-featured glass-panel" onclick="openProductModal('${product.id}')">
-          <div class="library-cover-wrapper">
-            <span class="badge-flashy">${product.badge}</span>
-            <img src="${product.image}" alt="${product.title}" loading="lazy">
-          </div>
-          
-          <div class="library-title">${product.title}</div>
-          
-          <div class="library-specs">
-            ${product.genre.map(g => `<span class="spec-tag">${g}</span>`).join('')}
-            <span class="spec-tag">${product.presets} Presets</span>
-          </div>
-          
-          <div class="library-meta">
-            <span class="library-price">\$${product.price.toFixed(2)} USD</span>
-            
-            <button class="buy-btn-gumroad ${!product.available ? 'buy-btn-disabled' : ''}" 
-                    onclick="event.stopPropagation(); ${product.available ? `window.location.href='https://gumroad.com/l/${product.gumroad_id}'` : 'alert("Coming soon!")'}"
-                    ${!product.available ? 'disabled' : ''}>
-              ${product.available ? 'BUY NOW' : 'COMING SOON'}
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    /* --- PRODUCT DETAIL MODAL --- */
-    function openProductModal(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-
-      const modalContent = document.getElementById('product-detail-content');
-      const audioPlayer = product.previewAudio ? `
-        <div class="product-preview-section">
-          <div class="preview-title">// PREVIEW</div>
-          <audio class="audio-player" controls>
-            <source src="${product.previewAudio}" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      ` : '';
-
-      modalContent.innerHTML = `
-        <div class="product-detail-header">
-          <div class="product-detail-image">
-            <img src="${product.image}" alt="${product.title}">
-          </div>
-          <div class="product-detail-info">
-            <div class="product-detail-title">${product.title}</div>
-            <div class="product-detail-price">\$${product.price.toFixed(2)} USD</div>
-            <div class="product-detail-description">${product.description}</div>
-            
-            <button class="buy-btn-gumroad ${!product.available ? 'buy-btn-disabled' : ''}" 
-                    onclick="${product.available ? `window.location.href='https://gumroad.com/l/${product.gumroad_id}'` : 'alert("Coming soon!")'}"
-                    ${!product.available ? 'disabled' : ''} style="width: 100%; margin-top: 16px;">
-              ${product.available ? 'BUY NOW' : 'COMING SOON'}
-            </button>
-          </div>
-        </div>
-
-        <div class="product-specs-list">
-          <div class="spec-item"><strong>DAW:</strong> ${product.daw}</div>
-          <div class="spec-item"><strong>Presets:</strong> ${product.presets} unique sounds</div>
-          <div class="spec-item"><strong>Genres:</strong> ${product.genre.join(', ')}</div>
-          <div class="spec-item"><strong>Format:</strong> 100% royalty-free</div>
-          <div class="spec-item"><strong>Support:</strong> Lifetime access to updates</div>
-        </div>
-
-        ${audioPlayer}
-      `;
-
-      document.getElementById('product-detail-overlay').classList.add('active');
-    }
-
-    function closeProductModal() {
-      document.getElementById('product-detail-overlay').classList.remove('active');
-    }
-
-    /* --- PAGE NAVIGATION --- */
-    function showPage(pageName) {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
-      document.getElementById(pageName + '-page').classList.add('active');
-      closeMobileMenu();
-      window.scrollTo(0, 0);
-    }
-
-    /* --- HAMBURGER MENU --- */
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const hamburger = document.getElementById('hamburger');
-      menu.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    }
-
-    function closeMobileMenu() {
-      document.getElementById('mobile-menu').classList.remove('active');
-      document.getElementById('hamburger').classList.remove('active');
-    }
-
-    /* --- DISCOUNT POPUP TIMER --- */
-    window.addEventListener('DOMContentLoaded', () => {
-      renderProducts('featured-libraries', 3);
-      renderProducts('all-libraries');
-
-      setTimeout(() => {
-        const overlay = document.getElementById('discount-overlay');
-        if (overlay) overlay.classList.add('active');
-      }, 10000);
-    });
-
-    function closeDiscountModal() {
-      document.getElementById('discount-overlay').classList.remove('active');
-    }
-
-    /* --- TIMECODE ENGINE --- */
-    function updateStudioTimecode() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      const frames = String(Math.floor((now.getMilliseconds() / 1000) * 30)).padStart(2, '0');
-      const timeElem = document.getElementById('timecode');
-      if (timeElem) {
-        timeElem.textContent = `${h}:${m}:${s}:${frames}`;
-      }
-    }
-    setInterval(updateStudioTimecode, 500);
-
-    /* --- FADE OUT SCROLL HINT ON SCROLL --- */
-    window.addEventListener('scroll', () => {
-      const hint = document.getElementById('scroll-hint');
-      if (window.scrollY > 40) {
-        hint.classList.add('fade-out');
-      } else {
-        hint.classList.remove('fade-out');
-      }
-    });
-
-    /* --- CLOSE MOBILE MENU ON OUTSIDE CLICK --- */
-    document.addEventListener('click', (e) => {
-      const menu = document.getElementById('mobile-menu');
-      const hamburger = document.getElementById('hamburger');
-      if (!menu.contains(e.target) && !hamburger.contains(e.target) && menu.classList.contains('active')) {
-        closeMobileMenu();
-      }
-    });
-  </script>
-
-  <!-- FORMSPREE AJAX INTEGRATION -->
-  <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#discount-form', formId: 'xykrband' });
-  </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
