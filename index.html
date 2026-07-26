@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OKDOLCE © - Producer & Sample Kits</title>
+  <title>OKDOLCE © - Producer & Vital Banks</title>
   
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,9 +22,11 @@
         <a href="javascript:void(0)" onclick="navigateTo('home')" class="brand-logo">okdolce</a>
       </div>
       
+      <div class="clock-display" id="clock">00:00:00</div>
+      
       <nav class="nav-desktop">
         <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-item">home</a>
-        <a href="javascript:void(0)" onclick="navigateTo('shop')" class="nav-item">presets</a>
+        <a href="javascript:void(0)" onclick="navigateTo('shop')" class="nav-item">banks</a>
         <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-item">about</a>
         <a href="javascript:void(0)" onclick="navigateTo('tos')" class="nav-item">tos</a>
       </nav>
@@ -38,7 +40,7 @@
 
     <div class="mobile-menu" id="mobile-menu">
       <a href="javascript:void(0)" onclick="navigateTo('home'); closeMobileMenu();" class="mobile-nav-item">home</a>
-      <a href="javascript:void(0)" onclick="navigateTo('shop'); closeMobileMenu();" class="mobile-nav-item">presets</a>
+      <a href="javascript:void(0)" onclick="navigateTo('shop'); closeMobileMenu();" class="mobile-nav-item">banks</a>
       <a href="javascript:void(0)" onclick="navigateTo('about'); closeMobileMenu();" class="mobile-nav-item">about</a>
       <a href="javascript:void(0)" onclick="navigateTo('tos'); closeMobileMenu();" class="mobile-nav-item">tos</a>
       <a href="mailto:dolcevvofficial@gmail.com" class="mobile-nav-item">contact</a>
@@ -52,7 +54,7 @@
       <!-- HERO SECTION -->
       <section class="hero">
         <h1 class="hero-title">okdolce</h1>
-        <p class="hero-subtitle">music production presets</p>
+        <p class="hero-subtitle">vital preset banks</p>
       </section>
 
       <!-- FEATURED WORKS -->
@@ -79,14 +81,34 @@
               <p>FLOYYMENOR</p>
             </div>
           </div>
+
+          <div class="work-item">
+            <div class="work-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/J6cHc-Kw2vY" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="work-info">
+              <h3>ELLA Y YO</h3>
+              <p>FLOYYMENOR</p>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="work-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="work-info">
+              <h3>UNTITLED</h3>
+              <p>OKDOLCE</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- FEATURED PRESETS -->
-      <section class="presets-section">
-        <div class="section-label">featured</div>
+      <!-- FEATURED BANKS -->
+      <section class="banks-section">
+        <div class="section-label">featured banks</div>
         
-        <div class="presets-grid" id="home-presets">
+        <div class="banks-grid" id="home-banks">
           <!-- Populated by JavaScript -->
         </div>
       </section>
@@ -97,9 +119,9 @@
   <div id="shop" class="page">
     <main class="container">
       <section class="shop-section">
-        <div class="section-label">all presets</div>
+        <div class="section-label">all banks</div>
         
-        <div class="presets-grid" id="shop-presets">
+        <div class="banks-grid" id="shop-banks">
           <!-- Populated by JavaScript -->
         </div>
       </section>
@@ -113,8 +135,14 @@
         <div class="section-label">about</div>
         
         <div class="about-content">
-          <p>Producer and preset designer crafting unique sonic tools for modern music creation.</p>
-          <p>Every preset bank is carefully designed and tested across multiple DAWs.</p>
+          <p>Producer and vital preset bank designer crafting unique sonic tools for modern music creation.</p>
+          <p>Every bank is carefully designed and tested across multiple DAWs to ensure compatibility and professional results.</p>
+          
+          <div class="about-images">
+            <div class="about-img"><img src="images/gallery-1.jpg" alt="Studio"></div>
+            <div class="about-img"><img src="images/gallery-2.jpg" alt="Equipment"></div>
+            <div class="about-img"><img src="images/gallery-3.jpg" alt="Setup"></div>
+          </div>
           
           <div class="social-links">
             <a href="https://instagram.com/dolceotm" target="_blank">instagram</a>
@@ -136,34 +164,62 @@
         
         <div class="tos-content">
           <div class="tos-item">
-            <h3>license</h3>
-            <p>By purchasing any preset bank, you receive a limited license for personal and commercial use in original music productions.</p>
+            <h3>license & usage rights</h3>
+            <p>By purchasing any Vital preset bank from OKDOLCE, you receive a non-exclusive, non-transferable license to use the preset files for personal and commercial music production purposes. You may use the presets in unlimited numbers of your own musical compositions, arrangements, and productions.</p>
           </div>
 
           <div class="tos-item">
-            <h3>permitted</h3>
+            <h3>permitted use</h3>
             <ul>
-              <li>Use in original music productions</li>
-              <li>Commercial releases and streaming</li>
-              <li>Modify and process presets</li>
-              <li>Use across multiple projects</li>
+              <li>Use presets in original music compositions</li>
+              <li>Use in commercial releases (streaming, sales, etc.)</li>
+              <li>Modify and process presets as needed</li>
+              <li>Use across unlimited projects and productions</li>
+              <li>Use for personal and professional purposes</li>
             </ul>
           </div>
 
           <div class="tos-item">
-            <h3>prohibited</h3>
+            <h3>prohibited use</h3>
             <ul>
-              <li>Resell or redistribute presets</li>
-              <li>Share on file-sharing sites</li>
-              <li>Claim original ownership</li>
-              <li>Use without valid license</li>
+              <li>Resell, redistribute, or share preset files with others</li>
+              <li>Upload presets to file-sharing or preset libraries</li>
+              <li>Claim ownership or authorship of the presets</li>
+              <li>Use without a valid purchase license</li>
+              <li>Sublicense or transfer the license to third parties</li>
+              <li>Reverse engineer or extract the preset data</li>
             </ul>
           </div>
 
           <div class="tos-item">
-            <h3>policy</h3>
-            <p>All sales are final. Digital products cannot be returned once downloaded.</p>
-            <p>Questions: <a href="mailto:dolcevvofficial@gmail.com">dolcevvofficial@gmail.com</a></p>
+            <h3>intellectual property</h3>
+            <p>All Vital preset banks, sounds, and configurations are the intellectual property of OKDOLCE. While you own the license to use them, OKDOLCE retains all ownership rights to the original designs and sounds.</p>
+          </div>
+
+          <div class="tos-item">
+            <h3>refund policy</h3>
+            <p>All sales are final. Digital products cannot be returned or refunded once purchased and downloaded. By purchasing, you acknowledge that digital preset files cannot be "unsold" or restored.</p>
+          </div>
+
+          <div class="tos-item">
+            <h3>warranty disclaimer</h3>
+            <p>OKDOLCE presets are provided "as-is" without any warranty, expressed or implied. OKDOLCE is not responsible for compatibility issues with specific DAW versions, plugins, or hardware configurations. We recommend testing compatibility before purchase.</p>
+          </div>
+
+          <div class="tos-item">
+            <h3>liability limitation</h3>
+            <p>OKDOLCE shall not be liable for any damages, direct or indirect, resulting from the use or inability to use these preset banks, including but not limited to lost data, business interruption, or any other commercial damages.</p>
+          </div>
+
+          <div class="tos-item">
+            <h3>modification of terms</h3>
+            <p>OKDOLCE reserves the right to modify these terms at any time. Continued use of the presets implies acceptance of updated terms.</p>
+          </div>
+
+          <div class="tos-item">
+            <h3>contact</h3>
+            <p>For questions, concerns, or inquiries regarding licensing, please contact: <a href="mailto:dolcevvofficial@gmail.com">dolcevvofficial@gmail.com</a></p>
+            <p class="tos-date">Last updated: July 2026</p>
           </div>
         </div>
       </section>

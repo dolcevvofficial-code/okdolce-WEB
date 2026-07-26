@@ -1,12 +1,12 @@
 :root {
-  --primary: #ffffff;
-  --secondary: #000000;
-  --accent: #cccccc;
-  --border: #333333;
-  --text: #ffffff;
-  --text-dim: #999999;
-  --background: #0f0f0f;
-  --surface: #1a1a1a;
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #333333;
+  --border: #cccccc;
+  --text: #000000;
+  --text-dim: #666666;
+  --background: #ffffff;
+  --surface: #f5f5f5;
 }
 
 * {
@@ -35,7 +35,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--text-dim);
 }
 
 /* HEADER */
@@ -75,7 +75,17 @@ a:hover {
 }
 
 .brand-logo:hover {
-  color: var(--accent);
+  color: var(--text-dim);
+}
+
+.clock-display {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 1px;
+  font-family: 'IBM Plex Mono', monospace;
+  min-width: 80px;
+  text-align: center;
 }
 
 .nav-desktop {
@@ -214,14 +224,14 @@ a:hover {
 }
 
 .work-item {
-  background: var(--surface);
+  background: var(--background);
   border: 1px solid var(--border);
   overflow: hidden;
   transition: all 0.2s ease;
 }
 
 .work-item:hover {
-  border-color: var(--accent);
+  border-color: var(--text);
 }
 
 .work-video {
@@ -253,8 +263,8 @@ a:hover {
   color: var(--text-dim);
 }
 
-/* PRESETS SECTION */
-.presets-section {
+/* BANKS SECTION */
+.banks-section {
   margin-bottom: 80px;
 }
 
@@ -262,25 +272,25 @@ a:hover {
   margin-bottom: 80px;
 }
 
-.presets-grid {
+.banks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
 }
 
-.preset-card {
-  background: var(--surface);
+.bank-card {
+  background: var(--background);
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.preset-card:hover {
+.bank-card:hover {
   border-color: var(--text);
 }
 
-.preset-cover {
+.bank-cover {
   width: 100%;
   aspect-ratio: 1 / 1;
   background: var(--surface);
@@ -290,20 +300,33 @@ a:hover {
   justify-content: center;
   font-size: 36px;
   color: var(--accent);
+  overflow: hidden;
+  position: relative;
 }
 
-.preset-info {
+.bank-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bank-cover.placeholder {
+  background: var(--text);
+  color: var(--background);
+}
+
+.bank-info {
   padding: 16px;
 }
 
-.preset-name {
+.bank-name {
   font-size: 14px;
   color: var(--text);
   margin-bottom: 6px;
   font-weight: 600;
 }
 
-.preset-status {
+.bank-status {
   font-size: 11px;
   color: var(--text-dim);
   margin-bottom: 12px;
@@ -311,14 +334,14 @@ a:hover {
   letter-spacing: 0.5px;
 }
 
-.preset-price {
+.bank-price {
   font-size: 13px;
   color: var(--text);
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-.preset-btn {
+.bank-btn {
   width: 100%;
   padding: 10px;
   background: var(--text);
@@ -334,19 +357,19 @@ a:hover {
   letter-spacing: 0.5px;
 }
 
-.preset-btn:hover {
+.bank-btn:hover {
   background: var(--background);
   color: var(--text);
 }
 
-.preset-btn-disabled {
+.bank-btn-disabled {
   background: var(--surface);
   color: var(--text-dim);
   border-color: var(--border);
   cursor: not-allowed;
 }
 
-.preset-btn-disabled:hover {
+.bank-btn-disabled:hover {
   background: var(--surface);
   color: var(--text-dim);
 }
@@ -368,6 +391,25 @@ a:hover {
   line-height: 1.7;
   margin-bottom: 16px;
   color: var(--text);
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.about-img {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .social-links {
@@ -402,7 +444,7 @@ a:hover {
   background: var(--surface);
   border: 1px solid var(--border);
   padding: 32px;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .tos-item {
@@ -436,6 +478,12 @@ a:hover {
   padding-left: 0;
 }
 
+.tos-date {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 20px;
+}
+
 /* MODAL */
 .modal-overlay {
   display: none;
@@ -444,7 +492,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
   align-items: center;
   justify-content: center;
@@ -456,9 +504,9 @@ a:hover {
 }
 
 .modal-content {
-  background: var(--surface);
+  background: var(--background);
   border: 1px solid var(--border);
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -479,7 +527,7 @@ a:hover {
 }
 
 .modal-close:hover {
-  color: var(--accent);
+  color: var(--text-dim);
 }
 
 .modal-title {
@@ -493,6 +541,13 @@ a:hover {
   color: var(--text);
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.modal-description {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
@@ -522,6 +577,7 @@ a:hover {
   padding: 32px 24px;
   position: relative;
   z-index: 1;
+  background: var(--surface);
 }
 
 .footer-content {
@@ -562,8 +618,12 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .presets-grid {
+  .banks-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
   }
 
   .container {
@@ -578,5 +638,9 @@ a:hover {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+  }
+
+  .clock-display {
+    display: none;
   }
 }

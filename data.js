@@ -1,43 +1,20 @@
-const presets = [
+const banks = [
   {
     id: 1,
-    name: "Reverie Synthétique",
-    emoji: "⬤",
+    name: "MJ SOUNDS VITAL BANK",
     price: 24.99,
     status: "available",
-    description: "Ethereal synth preset bank with lush pads and evolving textures. Minimal yet expansive soundscapes for ambient and experimental music."
+    hasCover: true,
+    coverImage: "images/mj-sounds-cover.jpg",
+    description: "Vital preset bank based on CRIS MJ's music production style in 2026. Featuring carefully crafted synths, arpeggios, and sonic textures inspired by modern production techniques."
   },
   {
     id: 2,
-    name: "Nocturne Glacial",
-    emoji: "◆",
+    name: "ANALOG EXPERIMENTS",
     price: 24.99,
-    status: "available",
-    description: "Dark, crystalline preset collection. Sharp synths with cold atmospheres for cinematic and electronic music production."
-  },
-  {
-    id: 3,
-    name: "Éclat Vaporeux",
-    emoji: "◇",
-    status: "coming soon"
-  },
-  {
-    id: 4,
-    name: "Luminescence Urbaine",
-    emoji: "▪",
-    status: "coming soon"
-  },
-  {
-    id: 5,
-    name: "Mélancolie Digitale",
-    emoji: "▫",
-    status: "coming soon"
-  },
-  {
-    id: 6,
-    name: "Horizon Synthétique",
-    emoji: "●",
-    status: "coming soon"
+    status: "coming soon",
+    hasCover: false,
+    description: "Experimental analog-inspired Vital presets. Coming soon."
   }
 ];
 
