@@ -156,7 +156,7 @@ function openAboutModal(bankId) {
   if (bank.hasVideo && bank.videoSrc) {
     videoHTML = `
       <div class="about-modal-video">
-        <video src="${bank.videoSrc}" controls preload="metadata" playsinline></video>
+        <video src="${bank.videoSrc}" autoplay loop muted playsinline preload="auto"></video>
       </div>
     `;
   }
@@ -182,7 +182,46 @@ function closeAboutModal(e) {
   const modal = document.getElementById('about-modal');
   modal.classList.remove('active');
   const video = modal.querySelector('video');
-  if (video) video.pause();
+  if (video) {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+}
+
+// TYPING ANIMATION
+function initTypingAnimation() {
+  const el = document.getElementById('typing-text');
+  if (!el) return;
+  
+  const text = 'latin producer';
+  let i = 0;
+  let deleting = false;
+  
+  function tick() {
+    if (!deleting) {
+      i++;
+      el.innerHTML = text.slice(0, i) + '<span class="typing-cursor">&nbsp;</span>';
+      if (i === text.length) {
+        deleting = true;
+        setTimeout(tick, 2500);
+        return;
+      }
+      setTimeout(tick, 90);
+    } else {
+      i--;
+      el.innerHTML = text.slice(0, i) + '<span class="typing-cursor">&nbsp;</span>';
+      if (i === 0) {
+        deleting = false;
+        setTimeout(tick, 600);
+        return;
+      }
+      setTimeout(tick, 45);
+    }
+  }
+  
+  el.innerHTML = '<span class="typing-cursor">&nbsp;</span>';
+  setTimeout(tick, 500);
 }
 
 // SCROLL HINT
@@ -247,6 +286,7 @@ function closeEmailPopup(e) {
 function init() {
   renderBanks('home-banks', featuredIds);
   renderAllBanks();
+  initTypingAnimation();
   initScrollHint();
   initEmailPopup();
 }
