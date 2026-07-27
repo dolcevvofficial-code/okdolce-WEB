@@ -15,12 +15,13 @@ const banks = [
   },
   {
     id: 2,
-    name: "ANALOG EXPERIMENTS",
+    name: "ANALOG EXPERIMENTS VITAL BANK",
     price: 24.99,
     status: "coming soon",
-    hasCover: false,
+    hasCover: true,
+    coverImage: "images/analog.jpg",
     description: "Experimental analog-inspired Vital presets. Coming soon.",
-    about: "An experimental collection of analog-inspired Vital presets. Pushing the boundaries of sound design with warm, textured, and organic tones. Coming soon."
+    about: "35 experimentos, todos en una sola carpeta. Algunos podrían decir que son demasiado experimentales..."
   },
   {
     id: 3,
@@ -36,4 +37,5 @@ const banks = [
   }
 ];
 
-const featuredIds = [1, 2, 3];
+// This array controls the exact order they appear on your site
+const featuredIds = [1, 3, 2];
