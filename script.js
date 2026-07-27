@@ -303,3 +303,19 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+// FREE MODAL LOGIC
+function openFreeModal() {
+  document.getElementById('free-modal').classList.add('active');
+}
+
+function closeFreeModal(e) {
+  if (e && e.target.id !== 'free-modal') return;
+  document.getElementById('free-modal').classList.remove('active');
+}
+
+// PREVENT RIGHT CLICK ON ALL IMAGES AND VIDEOS
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+    e.preventDefault();
+  }
+});
