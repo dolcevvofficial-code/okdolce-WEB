@@ -168,6 +168,13 @@ function openAboutModal(bankId) {
   `;
   
   modal.classList.add('active');
+  
+  if (bank.hasVideo && bank.videoSrc) {
+    const video = body.querySelector('video');
+    if (video) {
+      video.load();
+    }
+  }
 }
 
 function closeAboutModal(e) {
