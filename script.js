@@ -56,10 +56,6 @@ function renderBanks(containerId, ids) {
     const card = document.createElement('div');
     card.className = 'bank-card';
     
-    if (bank.status === 'available') {
-      card.onclick = () => openProductModal(bank);
-    }
-    
     let coverHTML = '';
     if (bank.hasCover) {
       coverHTML = `<div class="bank-cover"><img src="${bank.coverImage}" alt="${bank.name}"></div>`;
@@ -67,19 +63,41 @@ function renderBanks(containerId, ids) {
       coverHTML = `<div class="bank-cover placeholder">coming soon</div>`;
     }
     
+    let priceHTML = '';
+    if (bank.status === 'available') {
+      if (bank.originalPrice) {
+        priceHTML = `
+          <div class="bank-price-row">
+            <span class="bank-price-current">$${bank.price.toFixed(2)}</span>
+            <span class="bank-price-original">$${bank.originalPrice.toFixed(2)}</span>
+            <span class="bank-discount-badge">save $${(bank.originalPrice - bank.price).toFixed(2)}</span>
+          </div>
+        `;
+      } else {
+        priceHTML = `<div class="bank-price">$${bank.price.toFixed(2)}</div>`;
+      }
+    }
+    
     card.innerHTML = `
       ${coverHTML}
       <div class="bank-info">
         <div class="bank-name">${bank.name}</div>
         <div class="bank-status">${bank.status}</div>
-        ${bank.status === 'available' ? `<div class="bank-price">$${bank.price.toFixed(2)}</div>` : ''}
+        ${priceHTML}
+        <button class="bank-about-btn" onclick="openAboutModal(${bank.id})">about</button>
         <button class="bank-btn ${bank.status === 'coming soon' ? 'bank-btn-disabled' : ''}" 
-          onclick="${bank.status === 'available' ? "openProductModal(banks.find(b => b.id === " + bank.id + "))" : 'null'}" 
           ${bank.status === 'coming soon' ? 'disabled' : ''}>
           ${bank.status === 'available' ? 'view' : 'coming soon'}
         </button>
       </div>
     `;
+    
+    if (bank.status === 'available') {
+      card.onclick = (e) => {
+        if (e.target.classList.contains('bank-about-btn')) return;
+        openProductModal(bank);
+      };
+    }
     
     container.appendChild(card);
   });
@@ -91,14 +109,25 @@ function renderAllBanks() {
   renderBanks('shop-banks', allIds);
 }
 
-// MODAL
+// PRODUCT MODAL
 function openProductModal(bank) {
   const modal = document.getElementById('product-modal');
   const body = document.getElementById('modal-body');
   
+  let priceHTML = `<div class="modal-price">$${bank.price.toFixed(2)}</div>`;
+  if (bank.originalPrice) {
+    priceHTML = `
+      <div class="bank-price-row" style="justify-content: center; margin-bottom: 16px;">
+        <span class="bank-price-current" style="font-size: 22px;">$${bank.price.toFixed(2)}</span>
+        <span class="bank-price-original">$${bank.originalPrice.toFixed(2)}</span>
+        <span class="bank-discount-badge">save $${(bank.originalPrice - bank.price).toFixed(2)}</span>
+      </div>
+    `;
+  }
+  
   body.innerHTML = `
     <h2 class="modal-title">${bank.name}</h2>
-    <div class="modal-price">$${bank.price.toFixed(2)}</div>
+    ${priceHTML}
     <p class="modal-description">${bank.description}</p>
     <button class="modal-btn" onclick="purchaseProduct('${bank.name}')">purchase</button>
   `;
@@ -115,10 +144,104 @@ function purchaseProduct(productName) {
   alert(`Redirecting to purchase: ${productName}`);
 }
 
+// ABOUT BANK MODAL
+function openAboutModal(bankId) {
+  const bank = banks.find(b => b.id === bankId);
+  if (!bank) return;
+  
+  const modal = document.getElementById('about-modal');
+  const body = document.getElementById('about-modal-body');
+  
+  let videoHTML = '';
+  if (bank.hasVideo && bank.videoSrc) {
+    videoHTML = `
+      <div class="about-modal-video">
+        <video src="${bank.videoSrc}" controls preload="metadata" playsinline></video>
+      </div>
+    `;
+  }
+  
+  body.innerHTML = `
+    <h2 class="modal-title">${bank.name}</h2>
+    ${videoHTML}
+    <p class="about-modal-text">${bank.about}</p>
+  `;
+  
+  modal.classList.add('active');
+}
+
+function closeAboutModal(e) {
+  if (e && e.target.id !== 'about-modal') return;
+  const modal = document.getElementById('about-modal');
+  modal.classList.remove('active');
+  const video = modal.querySelector('video');
+  if (video) video.pause();
+}
+
+// SCROLL HINT
+function initScrollHint() {
+  const hint = document.getElementById('scroll-hint');
+  if (!hint) return;
+  
+  let dismissed = false;
+  
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    hint.classList.add('hide');
+    setTimeout(() => { hint.style.display = 'none'; }, 400);
+  }
+  
+  window.addEventListener('scroll', dismiss, { once: true, passive: true });
+  setTimeout(dismiss, 8000);
+}
+
+// EMAIL DISCOUNT POPUP
+function initEmailPopup() {
+  const popup = document.getElementById('email-popup');
+  const form = document.getElementById('discount-form');
+  const success = document.getElementById('discount-success');
+  
+  if (!popup || !form) return;
+  
+  if (sessionStorage.getItem('emailPopupShown') === '1') return;
+  
+  setTimeout(() => {
+    popup.classList.add('active');
+    sessionStorage.setItem('emailPopupShown', '1');
+  }, 10000);
+  
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+      const response = await fetch('https://formspree.io/f/xykrband', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        success.classList.add('show');
+      }
+    } catch (err) {
+      form.style.display = 'none';
+      success.classList.add('show');
+    }
+  });
+}
+
+function closeEmailPopup(e) {
+  if (e && e.target.id !== 'email-popup' && !e.target.classList.contains('email-popup-dismiss')) return;
+  document.getElementById('email-popup').classList.remove('active');
+}
+
 // INITIALIZE
 function init() {
   renderBanks('home-banks', featuredIds);
   renderAllBanks();
+  initScrollHint();
+  initEmailPopup();
 }
 
 if (document.readyState === 'loading') {

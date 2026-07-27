@@ -53,8 +53,10 @@
       
       <!-- HERO SECTION -->
       <section class="hero">
-        <h1 class="hero-title">okdolce</h1>
-        <p class="hero-subtitle">vital preset banks</p>
+        <div class="hero-logo">
+          <img src="images/faviconbig.png" alt="okdolce" class="hero-logo-img">
+        </div>
+        <p class="hero-subtitle glitch" data-text="latin producer">latin producer</p>
       </section>
 
       <!-- FEATURED WORKS -->
@@ -139,9 +141,9 @@
           <p>Every bank is carefully designed and tested across multiple DAWs to ensure compatibility and professional results.</p>
           
           <div class="about-images">
-            <div class="about-img"><img src="images/gallery-1.jpg" alt="Studio"></div>
-            <div class="about-img"><img src="images/gallery-2.jpg" alt="Equipment"></div>
-            <div class="about-img"><img src="images/gallery-3.jpg" alt="Setup"></div>
+            <div class="about-img"><img src="images/Photo1.jpg" alt="Studio"></div>
+            <div class="about-img"><img src="images/Photo2.jpeg" alt="Equipment"></div>
+            <div class="about-img"><img src="images/Photo3.jpeg" alt="Portrait"></div>
           </div>
           
           <div class="social-links">
@@ -149,7 +151,7 @@
             <a href="https://tiktok.com/@dolceotm" target="_blank">tiktok</a>
             <a href="https://genius.com/artists/Dolceotm" target="_blank">genius</a>
             <a href="https://open.spotify.com/playlist/1hLRoaduuYjGFnT88LVnW1" target="_blank">spotify</a>
-            <a href="mailto:dolcevvofficial@gmail.com">contact</a>
+            <a href="mailto:dolcevvofficial@gmail.com" class="contact-link">contact</a>
           </div>
         </div>
       </section>
@@ -233,6 +235,37 @@
       <div id="modal-body">
         <!-- Populated by JavaScript -->
       </div>
+    </div>
+  </div>
+
+  <!-- ABOUT BANK MODAL -->
+  <div class="modal-overlay" id="about-modal" onclick="closeAboutModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeAboutModal()">&times;</button>
+      <div id="about-modal-body">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL DOWN POPUP -->
+  <div class="scroll-hint" id="scroll-hint">
+    <span class="scroll-hint-text">scroll down</span>
+    <span class="scroll-hint-arrow">&darr;</span>
+  </div>
+
+  <!-- EMAIL DISCOUNT POPUP -->
+  <div class="email-popup-overlay" id="email-popup" onclick="closeEmailPopup(event)">
+    <div class="email-popup-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeEmailPopup()">&times;</button>
+      <h2 class="email-popup-title">10% off your first purchase</h2>
+      <p class="email-popup-text">enter your email to receive a 10% discount code</p>
+      <form class="email-popup-form" id="discount-form">
+        <input type="email" name="email" placeholder="your@email.com" required class="email-popup-input">
+        <button type="submit" class="email-popup-btn">get code</button>
+      </form>
+      <p class="email-popup-success" id="discount-success">thank you! check your inbox for the code.</p>
+      <button class="email-popup-dismiss" onclick="closeEmailPopup()">no thanks</button>
     </div>
   </div>
 
