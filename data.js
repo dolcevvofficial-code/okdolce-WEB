@@ -31,9 +31,11 @@ const banks = [
     hasCover: true,
     coverImage: "images/drumkit.jpg",
     description: "Original Sounds By Dolce.",
-    about: "Lo esencial. Los últimos bombos y cajas utilizados en la reciente producción de Cris MJ (Panda Black, Reelian, Nes). Creados desde cero con Vital. Contiene 25 bombos y 25 cajas.",
+    about: "Lo esencial. Los últimos kicks y snares utilizado en la reciente producción de Cris MJ (Panda Black, Reelian, Nes). Creados desde cero con Vital. Contiene 25 kicks y 25 snares.",
     hasVideo: true,
-    videoSrc: "videos/mjvideo.mp4"
+    videoSrc: "videos/mjvideo.mp4",
+    bestSeller: true
+  
   }
 ];
 
