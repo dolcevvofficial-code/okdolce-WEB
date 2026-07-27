@@ -105,7 +105,26 @@
           </div>
         </div>
       </section>
-
+<!-- LIMITED TIME FREEBIE -->
+      <section class="banks-section" style="margin-top: 60px;">
+        <div class="section-label" style="color: #00d2ff; font-weight: bold; letter-spacing: 3px;">limited time</div>
+        
+        <div class="banks-grid">
+          <div class="bank-card bank-card-bestseller" style="border-color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);">
+            <div class="bank-tag-bestseller" style="background: #00d2ff; color: #000; font-weight: 900; padding: 6px 12px; font-size: 11px;">GRATIS</div>
+            <div class="bank-cover"><img src="images/maullame.jpg" alt="Maullame Vocal Chain"></div>
+            <div class="bank-info">
+              <div class="bank-name" style="font-size: 15px; font-weight: 700;">MAULLAME TYPE VOCAL CHAIN</div>
+              <div class="bank-status">Cris MJ Style</div>
+              <div class="bank-price" style="color: #00d2ff; font-weight: 700; font-size: 14px;">$0.00</div>
+              <button class="bank-about-btn" onclick="openFreeModal()">about</button>
+              <a href="https://www.dropbox.com/scl/fi/bkqta1s62dahpci2wygsf/GRATIS-MAULLAME-PRESET-DOLCEOTM.fst?rlkey=g8y1t56idlc03knnlupk2i8s1&st=6grv04yk&e=1&dl=0" target="_blank" style="text-decoration: none; display: block; margin-top: 8px;">
+                <button class="bank-btn" style="background: #00d2ff; color: #000; border-color: #00d2ff; width: 100%; font-weight: 700; font-size: 12px;">GET NOW</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- FEATURED BANKS -->
       <section class="banks-section">
         <div class="section-label">featured banks</div>
@@ -246,7 +265,28 @@
       </div>
     </div>
   </div>
-
+<!-- FREE VOCAL CHAIN MODAL -->
+  <div class="modal-overlay" id="free-modal" onclick="closeFreeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeFreeModal()">&times;</button>
+      <div id="free-modal-body">
+        <h2 class="modal-title" style="color: #00d2ff;">MAULLAME TYPE VOCAL CHAIN</h2>
+        <p class="about-modal-text" style="margin-bottom: 24px;">
+          Inspirado en la cadena vocal de Maullame, de Cris MJ. Esta cadena vocal utiliza plugins completamente gratuitos, excepto Auto-Tune. Encontrarás los enlaces a los plugins necesarios más abajo.
+        </p>
+        <div class="about-modal-text" style="display: flex; flex-direction: column; gap: 12px;">
+          <a href="https://zl-audio.github.io/plugins/zlequalizer2/installation/" target="_blank" style="text-decoration: underline; color: var(--text);">1. ZL Equalizer 2</a>
+          <a href="https://www.softube.com/us/plug-ins/saturation-knob" target="_blank" style="text-decoration: underline; color: var(--text);">2. Saturation Knob</a>
+          <a href="https://www.patreon.com/analogobsession/posts/lala-36128829" target="_blank" style="text-decoration: underline; color: var(--text);">3. LALA</a>
+          <a href="https://www.patreon.com/analogobsession/posts/britbundle-79798060" target="_blank" style="text-decoration: underline; color: var(--text);">4. BRIT PRE</a>
+          <a href="https://musicbymattie.com/free-vocal-rider?srsltid=AfmBOopjOydZPtavtq-QaB6IL__Iu6xCZEAJOi0IKPpcxAwI0Ou6eTwP" target="_blank" style="text-decoration: underline; color: var(--text);">5. Free Vocal Rider</a>
+          <a href="https://techivation.com/t-de-esser/?srsltid=AfmBOor49GN44rzdRn8F63DoQhC9wZYxJNrq2IYigxNshyqDMHc0gZ7x" target="_blank" style="text-decoration: underline; color: var(--text);">6. T-De-Esser</a>
+          <a href="https://www.patreon.com/analogobsession/posts/graphack-80663451" target="_blank" style="text-decoration: underline; color: var(--text);">7. Graphack</a>
+          <a href="https://bertomaudio.com/vocal-compressor.html" target="_blank" style="text-decoration: underline; color: var(--text);">8. Vocal Compressor</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- SCROLL DOWN POPUP -->
   <div class="scroll-hint" id="scroll-hint">
     <span class="scroll-hint-text">scroll down</span>
