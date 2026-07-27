@@ -55,6 +55,12 @@ function renderBanks(containerId, ids) {
     
     const card = document.createElement('div');
     card.className = 'bank-card';
+    if (bank.bestSeller) card.classList.add('bank-card-bestseller');
+    
+    let tagHTML = '';
+    if (bank.bestSeller) {
+      tagHTML = '<div class="bank-tag-bestseller">best seller</div>';
+    }
     
     let coverHTML = '';
     if (bank.hasCover) {
@@ -79,6 +85,7 @@ function renderBanks(containerId, ids) {
     }
     
     card.innerHTML = `
+      ${tagHTML}
       ${coverHTML}
       <div class="bank-info">
         <div class="bank-name">${bank.name}</div>
