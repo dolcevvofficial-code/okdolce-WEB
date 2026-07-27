@@ -250,7 +250,7 @@ function initScrollHint() {
 }
 
 // EMAIL DISCOUNT POPUP
-function initEmailPopup() {
+//function initEmailPopup() {
   const popup = document.getElementById('email-popup');
   const form = document.getElementById('discount-form');
   const success = document.getElementById('discount-success');
