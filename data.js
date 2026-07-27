@@ -21,7 +21,19 @@ const banks = [
     hasCover: false,
     description: "Experimental analog-inspired Vital presets. Coming soon.",
     about: "An experimental collection of analog-inspired Vital presets. Pushing the boundaries of sound design with warm, textured, and organic tones. Coming soon."
+  },
+  {
+    id: 3,
+    name: "MJ SOUNDS DRUMKIT",
+    price: 19.99,
+    status: "coming soon",
+    hasCover: true,
+    coverImage: "images/drumkit.jpg",
+    description: "Original Sounds By Dolce.",
+    about: "Lo esencial. Los últimos bombos y cajas utilizados en la reciente producción de Cris MJ (Panda Black, Reelian, Nes). Creados desde cero con Vital. Contiene 25 bombos y 25 cajas.",
+    hasVideo: true,
+    videoSrc: "videos/mjvideo.mp4"
   }
 ];
 
-const featuredIds = [1, 2];
+const featuredIds = [1, 2, 3];
